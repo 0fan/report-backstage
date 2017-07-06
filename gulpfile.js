@@ -10,7 +10,8 @@ const autoprefixer = require('gulp-autoprefixer'),
       rename       = require('gulp-rename'),
       uglify       = require('gulp-uglify'),
       sequence     = require('gulp-sequence'),
-      open         = require('gulp-open')
+      open         = require('gulp-open'),
+      imagemin     = require('gulp-imagemin')
 
 /* clean */
 gulp.task('clean', () => {
@@ -45,8 +46,11 @@ gulp.task('js', () => {
 /* jsVendor */
 gulp.task('jsVendor', () => {
   return (
-    gulp.src('./src/js/vendor/**/*.js')
-        .pipe(concat('vendor.bundle.js'))
+    gulp.src([
+          './src/js/vendor/jquery-1.9.1.min.js',
+          './src/js/vendor/bootstrap.min.js',
+        ])
+        .pipe(concat('vendor.js'))
         .pipe(gulp.dest('./dist/js/'))
   )
 })
@@ -86,6 +90,7 @@ gulp.task('font', () => {
 gulp.task('img', () => {
   return (
     gulp.src('./src/img/**')
+        .pipe(imagemin())
         .pipe(gulp.dest('./dist/img'))
   )
 })
@@ -106,7 +111,7 @@ gulp.task('open', () => {
       }))
 })
 
-/* 文件监听 */
+/* watch */
 gulp.task('watch', () => {
   gulp.watch('./src/less/**/*.less', ['less'])
   gulp.watch('./src/js/**/*.js', ['js'])
