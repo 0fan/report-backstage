@@ -23,9 +23,8 @@ gulp.task('clean', () => {
 /* html */
 gulp.task('html', () => {
   return (
-    gulp.src(['./src/html/**/*.html'])
+    gulp.src(['./src/html/**/*'])
         .pipe(gulp.dest('./dist/'))
-        .pipe(connect.reload())
         .pipe(connect.reload())
   )
 })
