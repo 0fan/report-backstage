@@ -48,6 +48,8 @@ gulp.task('jsVendor', () => {
     gulp.src([
           './src/js/vendor/jquery-1.9.1.min.js',
           './src/js/vendor/bootstrap.min.js',
+          './src/js/vendor/bootstrap-table.min.js',
+          './src/js/vendor/bootstrap-table-zh-CN.min.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('./dist/js/'))
@@ -58,7 +60,7 @@ gulp.task('jsVendor', () => {
 gulp.task('css', () => {
   return (
     gulp.src('./src/css/**/*.css')
-        .pipe(concat('vendor.min.css'))
+        .pipe(concat('vendor.css'))
         .pipe(gulp.dest('./dist/css/'))
   )
 })
