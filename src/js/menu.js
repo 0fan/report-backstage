@@ -1,5 +1,6 @@
 // 一级菜单选择
 $(document).on('click', '.menu-item', (e) => {
+  e.preventDefault()
   let $el = $(e.target)
 
   if (!$el.is('.menu-item')) {
@@ -14,6 +15,7 @@ $(document).on('click', '.menu-item', (e) => {
 
 // 子菜单选择
 $(document).on('click', '.sub-menu-item', (e) => {
+  e.preventDefault()
   let $el = $(e.target)
 
   if (!$el.is('.sub-menu-item')) {
@@ -27,6 +29,7 @@ $(document).on('click', '.sub-menu-item', (e) => {
 
 // 子菜单折叠
 $(document).on('click', '.sub-menu-tit', (e) => {
+  e.preventDefault()
   let $el = $(e.target)
 
   if (!$el.is('.sub-menu-tit')) {

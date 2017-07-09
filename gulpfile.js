@@ -11,7 +11,9 @@ const autoprefixer = require('gulp-autoprefixer'),
       uglify       = require('gulp-uglify'),
       sequence     = require('gulp-sequence'),
       open         = require('gulp-open'),
-      imagemin     = require('gulp-imagemin')
+      imagemin     = require('gulp-imagemin'),
+      fileInclude  = require('gulp-file-include'),
+      replace      = require('gulp-replace')
 
 /* clean */
 gulp.task('clean', () => {
@@ -23,7 +25,14 @@ gulp.task('clean', () => {
 /* html */
 gulp.task('html', () => {
   return (
-    gulp.src(['./src/html/**/*'])
+    gulp.src([
+          './src/html/login.html',
+          './src/html/index.html',
+        ])
+        .pipe(fileInclude({
+          prefix: '@@',
+          basepath: './src/html/public/'
+        }))
         .pipe(gulp.dest('./dist/'))
         .pipe(connect.reload())
   )
@@ -114,7 +123,8 @@ gulp.task('connect', () => {
 gulp.task('open', () => {
   gulp.src(__filename)
       .pipe(open({
-        uri: 'http://localhost:8080'
+        uri: 'http://localhost:8080',
+        app: 'chrome'
       }))
 })
 
