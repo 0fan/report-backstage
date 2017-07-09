@@ -32,7 +32,10 @@ gulp.task('html', () => {
 /* js */
 gulp.task('js', () => {
   return (
-    gulp.src('./src/js/app.js')
+    gulp.src([
+          './src/js/app.js',
+          './src/js/login.js'
+        ])
         .pipe(babel())
         .pipe(browserify({
           transform: ['babelify']
@@ -68,7 +71,10 @@ gulp.task('css', () => {
 /* less */
 gulp.task('less', () => {
   return (
-    gulp.src('./src/less/app.less')
+    gulp.src([
+        './src/less/app.less',
+        './src/less/login/login.less'
+        ])
         .pipe(less())
         .pipe(autoprefixer({
           browsers: ['> 0.01%']
