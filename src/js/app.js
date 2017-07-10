@@ -1,23 +1,38 @@
 import './menu'
+import store from './vendor/store.everything.min'
+import url from './data/url'
+import request from './data/request'
+import modal from './widget/modal'
 
-$('#data-table').bootstrapTable({
-  columns: [{
-        field: 'id',
-        title: 'Item ID'
-    }, {
-        field: 'name',
-        title: 'Item Name'
-    }, {
-        field: 'price',
-        title: 'Item Price'
-    }],
-    data: [{
-        id: 1,
-        name: 'Item 1',
-        price: '$1'
-    }, {
-        id: 2,
-        name: 'Item 2',
-        price: '$2'
-    }]
+const user = store.get('user')
+
+if (!user) {
+  window.location = '/login.html'
+}
+
+// 渲染数据
+$('.user-info .role span').text(user.roles["0"].roleName)
+
+// 获取渠道商数据
+const baseURL          = url.baseURL,
+      getChannelList   = request.getChannelList
+
+$.ajax({
+  url: baseURL + getChannelList,
+  type: 'POST',
+  data: {
+    currentPage: 1,
+    pageSize: 20
+  },
+})
+.done(function(d) {
+  console.log("success")
+  console.log(d)
+})
+.fail(function(d) {
+  console.log("error")
+  console.log(d)
+})
+.always(function() {
+  console.log("complete")
 })

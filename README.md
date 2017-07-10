@@ -1,7 +1,6 @@
 ## src文件目录说明
 
 src  
- ├─conponent  公共组件  
  └─role  用户角色目录  
      ├─administrator  系统管理员  
      │  ├─channelManage  渠道商管理  

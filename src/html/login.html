@@ -14,17 +14,20 @@
     <!-- login-container -->
     <div class="login-container">
       <div class="title">登录壹平方</div>
-      <form action="#">
-        <div class="form-group">
-          <label>用户名</label>
-          <input type="text">
-        </div>
-        <div class="form-group">
-          <label>用户名</label>
-          <input type="text">
-        </div>
-        <button class="submit">登录</button>
-      </form>
+      <div class="form-group">
+        <label>用户名</label>
+        <input type="text" id='user' autocomplete="off" >
+        <div class="tip"></div>
+      </div>
+      <div class="form-group">
+        <label>密码</label>
+        <input type="password" id='password' autocomplete="off" >
+        <div class="tip"></div>
+      </div>
+      <div class="action">
+        <button class="submit" id='submit'>登录</button>
+        <button class="submit" id='submit-wait' disabled>登录中...</button>
+      </div>
     </div>
     <!-- /login-container -->
   </div>

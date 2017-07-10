@@ -26,8 +26,9 @@ gulp.task('clean', () => {
 gulp.task('html', () => {
   return (
     gulp.src([
-          './src/html/login.html',
-          './src/html/index.html',
+          './src/html/**/*.html',
+          '!./src/html/public/**/*.html',
+          '!./src/html/template.html'
         ])
         .pipe(fileInclude({
           prefix: '@@',
@@ -35,6 +36,14 @@ gulp.task('html', () => {
         }))
         .pipe(gulp.dest('./dist/'))
         .pipe(connect.reload())
+  )
+})
+
+/* favicon */
+gulp.task('favicon', () => {
+  return (
+    gulp.src('src/html/favicon.ico')
+        .pipe(gulp.dest('./dist/'))
   )
 })
 
@@ -61,7 +70,8 @@ gulp.task('jsVendor', () => {
           './src/js/vendor/jquery-1.9.1.min.js',
           './src/js/vendor/bootstrap.min.js',
           './src/js/vendor/bootstrap-table.min.js',
-          './src/js/vendor/bootstrap-table-zh-CN.min.js'
+          './src/js/vendor/bootstrap-table-zh-CN.min.js',
+          // './src/js/vendor/store.everything.min.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('./dist/js/'))
@@ -137,5 +147,5 @@ gulp.task('watch', () => {
 
 /* default */
 gulp.task('default', ['clean'], () => {
-  sequence('html','jsVendor', 'js', 'css', 'less', 'font', 'img', 'connect', 'open', 'watch')()
+  sequence('html','favicon', 'jsVendor', 'js', 'css', 'less', 'font', 'img', 'connect', 'open', 'watch')()
 })
