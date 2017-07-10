@@ -29,6 +29,8 @@
     "gulp-uglify": "^3.0.0"
   },
   "dependencies": {
-    "jquery": "^1.9.1"
+    "jquery": "^1.9.1",
+    "jquery-validation": "^1.16.0",
+    "store": "^2.0.12"
   }
 }

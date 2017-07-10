@@ -1,5 +1,7 @@
-import '../js/vendor/jquery-1.9.1.min.js'
-import store from '../js/vendor/store.everything.min.js'
+import $ from 'jquery'
+import validation from 'jquery-validation'
+import store from 'store'
+
 import url from './data/url'
 import request from './data/request'
 

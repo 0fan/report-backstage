@@ -70,8 +70,10 @@ gulp.task('jsVendor', () => {
           './src/js/vendor/jquery-1.9.1.min.js',
           './src/js/vendor/bootstrap.min.js',
           './src/js/vendor/bootstrap-table.min.js',
+          './src/js/vendor/bootstrap-table-resizable.js',
           './src/js/vendor/bootstrap-table-zh-CN.min.js',
-          // './src/js/vendor/store.everything.min.js'
+          './src/js/vendor/bootstrap-table-export.js',
+          './src/js/vendor/tableExport.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('./dist/js/'))

@@ -1,6 +1,6 @@
 const request = {
   login: 'dologin',
-  getChannelList: 'developer/list'
+  getChannelList: 'channel/list'
 }
 
 export default request
