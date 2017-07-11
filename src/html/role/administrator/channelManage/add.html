@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+    
+    <link rel="stylesheet" href="../../../css/vendor.css">
+    <link rel="stylesheet" href="../../../css/app.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="root">
+      @@include('header.html')
+      <div class="esp-main-wrapper">
+        <!-- esp-menu -->
+        <ul class="esp-menu">
+          <li class="menu-item active"><a href="#">渠道商管理</a></li>
+          <li class="menu-item"><a href="#">开发商管理</a></li>
+          <li class="menu-item"><a href="#">楼盘管理</a></li>
+          <li class="menu-item"><a href="#">设备管理</a></li>
+          <li class="menu-item"><a href="#">到访管理</a></li>
+          <li class="sub-menu">
+            <div class="sub-menu-tit">
+              <span>系统管理</span>
+            </div>
+            <ul>
+              <li class="sub-menu-item"><a href="#">系统角色管理</a></li>
+              <li class="sub-menu-item"><a href="#">系统用户管理</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- /esp-menu -->
+
+        <div class="esp-main-container">
+          <!-- breadcrumb -->
+          <ol class="breadcrumb">
+            <li><a href="./index.html">渠道商管理</a></li>
+            <li class="active">新增渠道商</li>
+          </ol>
+          <!-- /breadcrumb -->
+          <form action="#" class="form-horizontal" id='add-form'>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>用户名</label>
+              <div class="col-sm-10">
+                <input name="userName" type="text" class="form-control" placeholder="用户名">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>企业名称</label>
+              <div class="col-sm-10">
+                <input name="companyName" type="text" class="form-control" placeholder="企业名称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>企业简码</label>
+              <div class="col-sm-10">
+                <input name="companyCode" type="text" class="form-control" placeholder="企业简码">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>企业简称</label>
+              <div class="col-sm-10">
+                <input name="companyAlias" type="text" class="form-control" placeholder="企业简称">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>联系人</label>
+              <div class="col-sm-10">
+                <input name="contacts" type="text" class="form-control" placeholder="联系人">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>联系手机</label>
+              <div class="col-sm-10">
+                <input name="mobile" type="text" class="form-control" placeholder="联系手机">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>营业执照</label>
+              <div class="col-sm-10">
+                <input name="businessLicense" type="text" class="form-control" placeholder="营业执照">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>结算帐号</label>
+              <div class="col-sm-10">
+                <input name="settlement" type="text" class="form-control" placeholder="结算帐号">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class='col-sm-2 control-label'>备注</label>
+              <div class="col-sm-10">
+                <textarea name="remark" class="form-control" rows="3" placeholder="备注"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" id='btn-submit'>提交</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="../../../js/vendor.js"></script>
+    <script src="../../../js/administrator/channelManage/add.js"></script>
+  </body>
+</html>

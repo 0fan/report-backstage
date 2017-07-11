@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>Bootstrap 101 Template</title>
     
     <link rel="stylesheet" href="../../../css/vendor.css">
     <link rel="stylesheet" href="../../../css/app.css">
 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -67,8 +69,12 @@
             </form>
           </div>
           <!-- /esp-search -->
-
-          <div id="data-table"></div>
+          <div id="toolbar">
+            <div class="form-inline" role="form">
+              <a href="./add.html" id="ok" type="submit" class="btn btn-primary">新增</a>
+            </div>
+          </div>
+          <table id='data-table'></table>
         </div>
       </div>
     </div>

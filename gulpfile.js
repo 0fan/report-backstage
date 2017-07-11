@@ -52,7 +52,8 @@ gulp.task('js', () => {
   return (
     gulp.src([
           './src/js/app.js',
-          './src/js/login.js'
+          './src/js/login.js',
+          './src/js/role/**/*.js'
         ])
         .pipe(babel())
         .pipe(browserify({
@@ -68,12 +69,14 @@ gulp.task('jsVendor', () => {
   return (
     gulp.src([
           './src/js/vendor/jquery-1.9.1.min.js',
+          './src/js/vendor/jquery.validate.min.js',
           './src/js/vendor/bootstrap.min.js',
           './src/js/vendor/bootstrap-table.min.js',
-          './src/js/vendor/bootstrap-table-resizable.js',
           './src/js/vendor/bootstrap-table-zh-CN.min.js',
           './src/js/vendor/bootstrap-table-export.js',
-          './src/js/vendor/tableExport.js'
+          './src/js/vendor/tableExport.js',
+          './src/js/vendor/bootstrap-table-resizable.js',
+          './src/js/vendor/colResizable-1.5.source.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('./dist/js/'))

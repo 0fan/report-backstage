@@ -19,7 +19,7 @@ const baseURL          = url.baseURL,
 
 $.ajax({
   url: baseURL + getChannelList,
-  type: 'POST',
+  // type: 'POST',
   data: {
     currentPage: 1,
     pageSize: 20
@@ -41,26 +41,33 @@ $.ajax({
 
 function renderTableDate(data) {
 
+  for (let i = 0, len = data.length; i < len; i++) {
+    data[i].action = '<div class="btn-group" role="group">\
+                        <button type="button" class="btn btn-default">修改</button>\
+                        <button type="button" class="btn btn-default">停用</button>\
+                        <button type="button" class="btn btn-default">详情</button>\
+                      </div>'
+  }
+
+
   $('#data-table').bootstrapTable({
     resizable: true, // 可拖曳宽度
     showColumns: true,
     showRefresh: true,
     showToggle: true,
+    showToolbar: true,
     showPaginationSwitch: true,
     showExport: true,
+    toolbar: "#toolbar",
     clickToSelect: true,
     exportDataType: 'selected', // 导出选择的项目
-    columns: [
-      {
-        field: 'state',
-        checkbox: true
+    columns: [{
+        field: 'companyName',
+        title: '企业名称',
+        sortable: true
       }, {
         field: 'userName',
         title: '用户名',
-        sortable: true
-      }, {
-        field: 'companyName',
-        title: '企业名称',
         sortable: true
       }, {
         field: 'companyAlias',
@@ -75,21 +82,10 @@ function renderTableDate(data) {
         title: '手机号码',
         sortable: true
       }, {
-        field: 'businessLicense',
-        title: '营业执照',
-        sortable: true
-      }, {
-        field: 'settlement',
-        title: '结算账号',
-        sortable: true
-      }, {
-        field: 'remark',
-        title: '备注',
-        sortable: true
-      }, {
         field: 'state',
         title: '状态',
         formatter: (index, row) => {
+          console.log(index)
           switch (index) {
             case 0:
               return '正常'
@@ -100,6 +96,11 @@ function renderTableDate(data) {
           }
         },
         sortable: true
+      }, {
+        field: 'action',
+        title: '操作',
+        width: '240px',
+        align: 'center'
       }
     ],
     data: data
